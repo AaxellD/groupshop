@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 
 if ($_REQUEST['action'] === 'index') {
     // simple get request ... just load al the class factory objects
-  echo json_encode(datagroup::all());
+  echo json_encode(DataGroup::all());
 }
 
 elseif ($_REQUEST['action'] === 'post') {
@@ -15,9 +15,9 @@ elseif ($_REQUEST['action'] === 'post') {
     // json_decode renders it as a JSON Object
   $body_object = json_decode($request_body);
     // uses model to create new class object
-  $new_data = new data(null, $body_object->name, $body_object->info);
+  $new_data = new Data(null, $body_object->name, $body_object->info);
     // adds the new data to the datagroup class factory object
-  $all_data = datagroup::create($new_data);
+  $all_data = DataGroup::create($new_data);
     // Finally --- we render it back in json string format
   echo json_encode($all_jokes);
 }
@@ -26,12 +26,12 @@ else if ($_REQUEST['action'] === 'update') {
   $request_body = file_get_contents('php://input');
   $body_object = json_decode($request_body);
   $updated_data = new Data($_REQUEST['id'], $body_object->setup, $body_object->delivery);
-  $all_jokes = Jokes::update($updated_joke);
-  echo json_encode($all_jokes);
+  $all_data = DataGroup::update($updated_joke);
+  echo json_encode($all_data);
 }
 
 else if ($_REQUEST['action'] === 'delete') {
-  $all_jokes = Jokes::delete($_REQUEST['id']);
-  echo json_encode($all_jokes);
+  $all_data = DataGroup::delete($_REQUEST['id']);
+  echo json_encode($all_data);
 }
 ?>
