@@ -1,0 +1,11 @@
+{
+    "name":"groupshop",
+    "authors": [
+        {
+            "name":"Xander",
+            "email":"aaxelld@gmail.com"
+        }
+    ],
+    "require":{
+    }
+}

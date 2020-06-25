@@ -39,7 +39,7 @@ class DataGroup {
   static function all(){
     $datagroup = array();
     // Select all
-    $results = pg_query("SELECT * FROM datagroup");
+    $results = pg_query("SELECT * FROM data");
 
     $row_object = pg_fetch_object($results);
 
@@ -60,7 +60,7 @@ class DataGroup {
 
 //   Handle create requests
   static function create($data){
-    $query = "INSERT INTO datagroup (name, info) VALUES ($1, $2)";
+    $query = "INSERT INTO data (name, info) VALUES ($1, $2)";
     $query_params = array($data->name, $data->info);
     pg_query_params($query, $query_params);
     return self::all();
@@ -68,7 +68,7 @@ class DataGroup {
 
 //   Update / Put Request
   static function update($updated_data){ 
-      $query = "UPDATE datagroup SET name = $1, info = $2 WHERE id = $3";
+      $query = "UPDATE data SET name = $1, info = $2 WHERE id = $3";
       $query_params = array($updated_data->name, $updated_data->info, $updated_data->id);
       $result = pg_query_params($query, $query_params);
 
@@ -76,7 +76,7 @@ class DataGroup {
     }
 //  Delete by ID request
     static function delete($id){
-      $query = "DELETE FROM datagroup WHERE id = $1";
+      $query = "DELETE FROM data WHERE id = $1";
       $query_params = array($id);
       $result = pg_query_params($query, $query_params);
 
