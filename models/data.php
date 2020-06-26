@@ -18,7 +18,7 @@ if(getenv('DATABASE_URL')){
     );
 } else {
     // Local Host Database
-    $dbconn = pg_connect("host=localhost dbname=jokes user=postgres password=blackdra9891");
+    $dbconn = pg_connect("host=localhost dbname=datagroup user=postgres password=blackdra9891");
 }
 
 // Data Object Model

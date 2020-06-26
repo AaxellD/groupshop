@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../models/joke.php';
+include_once __DIR__ . '/../models/data.php';
 
 header('Content-Type: application/json');
 
